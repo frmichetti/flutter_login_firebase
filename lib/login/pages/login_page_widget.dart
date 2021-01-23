@@ -37,6 +37,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             label: "SIGN UP",
             backgroundColor: Colors.transparent,
             borderColor: Colors.white,
+            onTap: () {
+              print("ON TAP");
+            },
           ),
           Container(
             height: 30,
@@ -45,6 +48,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             label: "LOGIN",
             backgroundColor: Colors.white,
             textColor: Theme.of(context).accentColor,
+              onTap: () {
+                print("ON TAP");
+              }
           ),
         ],
       ),
