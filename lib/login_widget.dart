@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_firebase/login/pages/login_page_widget.dart';
 import 'package:login_firebase/login/pages/login_signin_page_widget.dart';
 import 'package:login_firebase/login/pages/login_signup_page_widget.dart';
+import 'package:login_firebase/login/provider/provider_page_controller.dart';
 
 class LoginWidget extends StatefulWidget {
   @override
@@ -11,14 +12,12 @@ class LoginWidget extends StatefulWidget {
 class _LoginWidgetState extends State<LoginWidget> {
   PageController _controller;
 
-
   @override
   void initState() {
     super.initState();
 
     _controller = PageController(initialPage: 1);
   }
-
 
   @override
   void dispose() {
@@ -36,14 +35,16 @@ class _LoginWidgetState extends State<LoginWidget> {
             "assets/imgs/monte.jpg",
             fit: BoxFit.cover,
           ),
-          PageView(
-            controller: _controller,
-            children: <Widget>[
-              LoginSignupPageWidget(),
-              LoginPageWidget(),
-              LoginSignInPageWidget()
-            ],
-          )
+          ProviderPageController(
+              controller: _controller,
+              child: PageView(
+                controller: _controller,
+                children: <Widget>[
+                  LoginSignupPageWidget(),
+                  LoginPageWidget(),
+                  LoginSignInPageWidget()
+                ],
+              ))
         ],
       ),
     );

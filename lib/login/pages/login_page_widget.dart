@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_firebase/login/provider/provider_page_controller.dart';
 import 'package:login_firebase/login/widgets/circle_button.dart';
 
 class LoginPageWidget extends StatefulWidget {
@@ -38,7 +39,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             backgroundColor: Colors.transparent,
             borderColor: Colors.white,
             onTap: () {
-              print("ON TAP");
+              ProviderPageController.of(context).toPage(0);
             },
           ),
           Container(
@@ -49,7 +50,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             backgroundColor: Colors.white,
             textColor: Theme.of(context).accentColor,
               onTap: () {
-                print("ON TAP");
+                ProviderPageController.of(context).toPage(2);
               }
           ),
         ],

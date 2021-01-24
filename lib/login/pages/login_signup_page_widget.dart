@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:login_firebase/login/provider/provider_page_controller.dart';
 import 'package:login_firebase/login/widgets/circle_button.dart';
 import 'package:login_firebase/login/widgets/custom_textfield.dart';
 
@@ -33,12 +34,17 @@ class _LoginSignupPageWidgetState extends State<LoginSignupPageWidget> {
           ),
           Container(
             width: double.infinity,
-            child: Text(
-              "Already have an account?",
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).accentColor),
+            child: GestureDetector(
+              onTap: () {
+                ProviderPageController.of(context).toPage(2);
+              },
+              child: Text(
+                "Already have an account?",
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).accentColor),
+              ),
             ),
           ),
           Container(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_firebase/login/widgets/circle_button.dart';
 import 'package:login_firebase/login/widgets/custom_textfield.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginSignInPageWidget extends StatefulWidget {
   @override
@@ -79,7 +80,7 @@ class _LoginSignInPageWidgetState extends State<LoginSignInPageWidget> {
               Expanded(
                 child: CircleButton(
                   label: "FACEBOOK",
-                  icon: Icon(Icons.home, color: Colors.white),
+                  icon: Icon(FontAwesomeIcons.facebookF, color: Colors.white, size: 14,),
                   backgroundColor: Colors.blue[800],
                 ),
               ),
@@ -89,7 +90,7 @@ class _LoginSignInPageWidgetState extends State<LoginSignInPageWidget> {
               Expanded(
                 child: CircleButton(
                   label: "GOOGLE",
-                  icon: Icon(Icons.home, color: Colors.white),
+                  icon: Icon(FontAwesomeIcons.google, color: Colors.white, size: 14,),
                   backgroundColor: Colors.red[700],
                 ),
               ),
