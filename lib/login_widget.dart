@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_firebase/login/pages/login_page_widget.dart';
 import 'package:login_firebase/login/pages/login_signin_page_widget.dart';
@@ -11,18 +12,19 @@ class LoginWidget extends StatefulWidget {
 
 class _LoginWidgetState extends State<LoginWidget> {
   PageController _controller;
+  FirebaseAuth _auth;
 
   @override
   void initState() {
     super.initState();
-
     _controller = PageController(initialPage: 1);
+    _auth = FirebaseAuth.instance;
   }
 
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
+    _controller.dispose();    
   }
 
   @override
@@ -36,6 +38,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             fit: BoxFit.cover,
           ),
           ProviderPageController(
+              firebaseAuth: _auth,
               controller: _controller,
               child: PageView(
                 controller: _controller,

@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:login_firebase/login/provider/provider_page_controller.dart';
 import 'package:login_firebase/login/widgets/circle_button.dart';
 import 'package:login_firebase/login/widgets/custom_textfield.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -70,7 +72,7 @@ class _LoginSignInPageWidgetState extends State<LoginSignInPageWidget> {
           _textForgot(),
           Container(height: 25),
           CircleButton(
-            label: "SIGN UP",
+            label: "SIGN IN",
           ),
           Container(height: 25),
           _lineTextLine(),
@@ -82,6 +84,10 @@ class _LoginSignInPageWidgetState extends State<LoginSignInPageWidget> {
                   label: "FACEBOOK",
                   icon: Icon(FontAwesomeIcons.facebookF, color: Colors.white, size: 14,),
                   backgroundColor: Colors.blue[800],
+                  onTap: () {
+                    var facebook = ProviderPageController.of(context).signInWithFacebook();
+                    print(facebook);
+                  },
                 ),
               ),
               Container(
@@ -92,6 +98,11 @@ class _LoginSignInPageWidgetState extends State<LoginSignInPageWidget> {
                   label: "GOOGLE",
                   icon: Icon(FontAwesomeIcons.google, color: Colors.white, size: 14,),
                   backgroundColor: Colors.red[700],
+                  onTap: () {
+                    //ProviderPageController.of(context).firebaseAuth.signInWithCredential(GoogleAuthCredential());
+                    var google = ProviderPageController.of(context).signInWithGoogle();
+                    print(google);
+                  },
                 ),
               ),
             ],
