@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_firebase/login/provider/provider_page_controller.dart';
+import 'package:login_firebase/login/utils/google_login.dart';
 import 'package:login_firebase/login/widgets/circle_button.dart';
 import 'package:login_firebase/login/widgets/custom_textfield.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -85,8 +86,8 @@ class _LoginSignInPageWidgetState extends State<LoginSignInPageWidget> {
                   icon: Icon(FontAwesomeIcons.facebookF, color: Colors.white, size: 14,),
                   backgroundColor: Colors.blue[800],
                   onTap: () {
-                    var facebook = ProviderPageController.of(context).signInWithFacebook();
-                    print(facebook);
+                   // var facebook = ProviderPageController.of(context).signInWithFacebook();
+                   // print(facebook);
                   },
                 ),
               ),
@@ -98,10 +99,12 @@ class _LoginSignInPageWidgetState extends State<LoginSignInPageWidget> {
                   label: "GOOGLE",
                   icon: Icon(FontAwesomeIcons.google, color: Colors.white, size: 14,),
                   backgroundColor: Colors.red[700],
-                  onTap: () {
+                  onTap: () async {
                     //ProviderPageController.of(context).firebaseAuth.signInWithCredential(GoogleAuthCredential());
-                    var google = ProviderPageController.of(context).signInWithGoogle();
-                    print(google);
+                    // var google = ProviderPageController.of(context).signInWithGoogle();
+                    // print(google);
+                    String user = await signInWithGoogle();
+                    print(user);
                   },
                 ),
               ),
